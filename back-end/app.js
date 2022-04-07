@@ -26,6 +26,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 const glossary = require('./routes/glossary')
 app.use('/glossary', glossary)
 
+const user = require('./routes/user')
+app.use('/user',user)
+
+const assessment = require('./routes/assessment')
+app.use('/assessment',user)
+
 /********************************************************************/
 
 module.exports = app;
