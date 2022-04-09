@@ -32,9 +32,11 @@ module.exports = function() {
         datetime: {
             type: Date,
             required: true,
-            default: date.now()
+            default: Date.now()
         }
     })
+
+    schema.index({assessment: 1, question: 1}, {unique: true})
 
     return mongoose.model('Answer', schema, 'answers')
 }

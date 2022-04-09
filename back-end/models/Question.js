@@ -1,9 +1,14 @@
 const mongoose = require('mongoose')
+const QuestionGroup = require('./QuestionGroup')
 
 module.exports = function()
 {
     const schema = mongoose.Schema({
-        question:{
+        number: {
+            type: Number,
+            required: true
+        },
+        enunciation:{
             type: String,
             required: true
         },
@@ -15,5 +20,9 @@ module.exports = function()
         }
     })
 
+    
+    // criando índice único para os campos de group e number
+    schema.index({group: 1 /* ASCendente */, number: 1 /* ASC */}, {unique: true})
+    
     return mongoose.model('Question', schema, 'questions')
 }
