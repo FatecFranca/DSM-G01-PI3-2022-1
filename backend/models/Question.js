@@ -4,7 +4,12 @@ module.exports = function() {
 
     const schema = mongoose.Schema({
 
-        question: {
+        number: {
+            type: Number,
+            required: true
+        },
+
+        enunciation: {
             type: String,
             required: true,
 
@@ -17,5 +22,9 @@ module.exports = function() {
         }
     })
 
+    schema.index({group: 1, number: 1}, {unique: true})
+
     return mongoose.model('Question', schema, 'questions')
+
+
 }
