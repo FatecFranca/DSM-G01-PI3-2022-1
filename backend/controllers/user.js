@@ -1,5 +1,7 @@
 // importa o model correspondente 
 const User = require('../models/User')()
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 
 const controller = {}  // objeto vazio 
 
@@ -79,5 +81,44 @@ controller.delete = async (req, res) => {
         res.status(500).send(error)
     }
 }
+
+controller.login = async(req, res) => {
+
+    try{
+        const user = await User.findOne({email: req.body.email})
+
+        if(!user) {
+            res.status(401).end()
+
+        } else {
+            bcrypt.compare(req.body.password, user.password_hash, function(err, result){
+
+                console.log(result)
+                
+                if(result){
+
+                    const token = jwt.sign({
+                        id: user._id
+                    }, process.env.SECRET, {
+                        expiresIn: 3600
+                    })
+
+                    res.json({
+                        auth: true, token
+                    })
+
+                } else {
+                    res.status(401).end()
+                }
+            })
+        }
+
+    }catch (error){
+        console.log(error)
+        res.status(500).send(error)
+    }
+}
+
+
 
 module.exports = controller
