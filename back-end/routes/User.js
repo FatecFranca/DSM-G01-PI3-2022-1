@@ -10,5 +10,6 @@ router.get('/', controller.retrieve)
 router.get('/:id', controller.retrieveOne)
 router.put('/', controller.update)
 router.delete('/', controller.delete)
+router.post('/login', controller.login)
 
 module.exports = router
