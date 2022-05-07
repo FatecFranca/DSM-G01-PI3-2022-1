@@ -5,9 +5,17 @@ const bcrypt = require('bcrypt')
 
 const controller = {}  // objeto vazio 
 
-// Função que será chamada para criar entrada no Glossário
 controller.create = async(req, res) => {
     try{
+        // É necessario ter um campo passord
+        if(!req.body.password) res.status(500).send({error: 'Path "password" is required'})
+
+        // Encripta o valor de password em password_hash 
+        req.body.password_hash = await bcrypt.hash(req.body.password, 12)
+
+        // Destroi o camo password para que ele nao seja passado para o model 
+        delete req.body.password
+
         await User.create(req.body)
         // HTTP 201: Created
         res.status(201).end()
@@ -19,10 +27,9 @@ controller.create = async(req, res) => {
     }
 }
 
-// Função que devolve uma listagem das entradas de glossário já inseridas
 controller.retrieve = async (req, res) => {
     try{
-        const result = await User.find({})
+        const result = await User.find().select('-password_hash')
         // HTTP 200: OK é implícito aqui 
         res.send(result)
     }
@@ -32,11 +39,10 @@ controller.retrieve = async (req, res) => {
     }
 }
 
-// Função que retorna uma unica entrada do glossário, com base no id fornecido
 controller.retrieveOne = async (req, res) => {
     try{
         const id = req.params.id
-        const result = await User.findById(id)
+        const result = await User.findById(id).select('-password_hash')
         
         // Se tivermos um resultado, retornamos status HTTP 200
         if(result) res.send(result)
@@ -52,6 +58,20 @@ controller.retrieveOne = async (req, res) => {
 
 controller.update = async (req, res) => {
     try{
+
+        // É necessario ter um campo passord
+        if(!req.body.password) res.status(500).send({error: 'Path "password" is required'})
+
+        // Encripta o valor de password em password_hash 
+        req.body.password_hash = await bcrypt.hash(req.body.password, 12)
+
+        // Destroi o camo password para que ele nao seja passado para o model 
+        delete req.body.password
+
+        if(req.body.password){ // Se o campo password existir encripta o valor para password_hash
+            req.body.password_hash = await bcrypt.hash(req.body.password, 12)
+        }
+
         const id = req.body._id
         const result = await User.findByIdAndUpdate(id, req.body)
 
@@ -85,7 +105,7 @@ controller.delete = async (req, res) => {
 controller.login = async(req, res) => {
 
     try{
-        const user = await User.findOne({email: req.body.email})
+        const user = await User.findOne({email: req.body.email}).select('password_hash')
 
         if(!user) {
             res.status(401).end()
@@ -117,6 +137,10 @@ controller.login = async(req, res) => {
         console.log(error)
         res.status(500).send(error)
     }
+}
+
+controller.logout = async(req, res) => {
+    res.send({auth: false, token: null})
 }
 
 

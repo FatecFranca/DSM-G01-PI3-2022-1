@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
         if(err) return res.status(403).send({auth: false, message: 'Failed to authenticate token'})
 
         // O token está ok 
-        req.userId = decoded.id
+        req.authenticatedId = decoded.id
 
         next()
 
