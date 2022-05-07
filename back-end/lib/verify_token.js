@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
         // o token está OK!
         
         //Salva o id na request para uso posterior
-        req.userId = decoded.id
+        req.authenticatedId = decoded.id
 
         next() // Chama a próxima função de middlleware
 

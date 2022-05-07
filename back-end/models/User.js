@@ -18,7 +18,8 @@ module.exports = function(){
         },
         password_hash: {
             type: String,
-            required: true
+            required: true,
+            select: false // campo não aparece em consulta
         },
         date_registered: {
             type: Date,

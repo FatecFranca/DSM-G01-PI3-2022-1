@@ -9,6 +9,15 @@ const controller = {} // objeto vazio
 // entrada do user
 controller.create = async (req , res) => {
     try {
+        // é necessário agora ter um campo password no body
+        if(!req.body.password) return res.status(500).send({error: 'Path "password" is required'})
+
+        //encripta a valor de "password" em "password_hash"
+        req.body.password_hash = await bcrypt.hash(req.body.password, 12)
+
+        //destrói o campo password para que ele não seja passado para o model
+        delete req.body.password
+
         await User.create(req.body)
         // HTTP 201: Created
         res.status(201)
@@ -25,6 +34,7 @@ controller.create = async (req , res) => {
 // user já inseridas
 controller.retrieve = async (req, res) => {
     try{
+        //const result = await User.find().select('-password_hash')
         const result = await User.find()
         // HTTP 200; OK é ímplicito aqui
         res.send(result)
@@ -58,6 +68,16 @@ controller.retrieveOne = async (req, res) =>{
 
 controller.update = async (req, res) => {
     try{
+
+        // é necessário agora ter um campo password no body
+
+        if(req.body.password){// se o campo password existir
+            //encripta a valor de "password" em "password_hash"
+            req.body.password_hash = await bcrypt.hash(req.body.password, 12)
+            //destrói o campo password para que ele não seja passado para o model
+            delete req.body.password
+        }
+
         const id = req.body._id
         const result = await User.findByIdAndUpdate(id, req.body)
         //HTTP 204: no Content
@@ -90,7 +110,7 @@ controller.login = async (req, res) =>
     try
     {
         //buscar o usuário no banco de dados
-        const user = await User.findOne({email: req.body.email})
+        const user = await User.findOne({email: req.body.email}).select('password_hash')
         if(!user)  // Usuário não encontrado
         {
             // HTTP 401: Unauthorized
@@ -125,6 +145,10 @@ controller.login = async (req, res) =>
         //HTTP 500: Internal Server Error
         res.status(500).send(error)
     }
+}
+
+controller.logout = async (req, res) => {
+    res.send({auth: false, token: null})
 }
 
 module.exports = controller
