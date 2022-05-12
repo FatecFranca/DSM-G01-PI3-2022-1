@@ -2,6 +2,8 @@
 const User = require('../models/User')()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const verifyToken = require('../lib/verify_token')
+
 
 const controller = {}  // objeto vazio 
 
@@ -29,7 +31,12 @@ controller.create = async(req, res) => {
 
 controller.retrieve = async (req, res) => {
     try{
-        const result = await User.find().select('-password_hash')
+
+        let result
+        if(req.authenticatedId === 'Id do usuário admin')
+            result = await User.find()
+        else result = await User.find({ _id: req.authenticatedId})
+
         // HTTP 200: OK é implícito aqui 
         res.send(result)
     }
@@ -42,8 +49,14 @@ controller.retrieve = async (req, res) => {
 controller.retrieveOne = async (req, res) => {
     try{
         const id = req.params.id
-        const result = await User.findById(id).select('-password_hash')
-        
+
+        let result
+
+        if(req.authenticatedId === 'Id do usuário Admin' || req.authenticatedId === id)
+            result = await User.findById(id)
+        else 
+            result = null
+                
         // Se tivermos um resultado, retornamos status HTTP 200
         if(result) res.send(result)
 
