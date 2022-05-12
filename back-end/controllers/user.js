@@ -34,8 +34,20 @@ controller.create = async (req , res) => {
 // user já inseridas
 controller.retrieve = async (req, res) => {
     try{
+        let result
+        // apenas o usuário administratdor estaria autorizado 
+        // a listar todos os usuários
+        if(req.authenticatedId === 'Id do usuário Admin')
+        {
+            result = await User.find();
+        }
+        else
+        {
+            result = await User.find({ _id: req.authenticatedId})
+        }
+
         //const result = await User.find().select('-password_hash')
-        const result = await User.find()
+        //const result = await User.find()
         // HTTP 200; OK é ímplicito aqui
         res.send(result)
     }
@@ -51,8 +63,17 @@ controller.retrieve = async (req, res) => {
 controller.retrieveOne = async (req, res) =>{
     try{
         const id = req.params.id
-        const result = await User.findById(id)
-        //se tivermos um resultado, retornamos com status HTTP 200
+
+        let result
+        // Retornamos os dados do usuário solicitado somente se quem estiver
+        // logado for admin ou o próprio usário sendo consultado
+        if ( req.authenticatedId === 'Id do usuário admin' || req.authenticatedId ===id)
+            result = await User.findById(id)
+        else
+            result = null
+        
+
+         //se tivermos um resultado, retornamos com status HTTP 200
         if(result) res.send(result)
         //Senão , retornamos HTTP 404: Not Found
        // else res.send(404).end()

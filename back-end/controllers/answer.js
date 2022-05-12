@@ -23,7 +23,8 @@ controller.create = async (req , res) => {
 // glossário já inseridas
 controller.retrieve = async (req, res) => {
     try{
-        const result = await Answer.find().populate('assessment').populate('question')  // populate em cascata pois a collection tem relação com duas outras collections
+        const assessmentId = req.params.id
+        const result = await Answer.find({assessment: assessmentId}).populate('assessment').populate('question')  // populate em cascata pois a collection tem relação com duas outras collections
         // HTTP 200; OK é ímplicito aqui
         res.send(result)
     }
