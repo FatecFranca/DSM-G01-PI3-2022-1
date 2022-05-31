@@ -12,4 +12,8 @@ router.get('/:id', controller.retrieveOne)
 router.put('/', controller.update)
 router.delete('/', controller.delete)
 
+//rotas para as alterações retiradas do git do professor
+router.get('/bygroup', controller.retrieveByGroup)
+router.get('/groupandnumber', controller.retrieveByGroupAndNumber)
+
 module.exports = router
