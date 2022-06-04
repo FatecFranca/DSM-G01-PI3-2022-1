@@ -1,0 +1,16 @@
+.question {
+  height: 98.5vh;
+  border: 0.2vh solid blue;
+
+  margin: 0.2%;
+  background-color: darkgray;
+}
+
+#areaAnswer {
+  height: 74vh;
+  border: 0.2vh solid red;
+
+  margin: 0.2%;
+  background-color: burlywood;
+}
+

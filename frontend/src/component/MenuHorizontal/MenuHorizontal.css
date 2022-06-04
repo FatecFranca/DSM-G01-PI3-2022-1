@@ -1,0 +1,41 @@
+.menuHorizontal {
+  height: 8vh;
+  border: 0.2vh solid darkmagenta;
+
+  margin: 0.2% 0.2% 0.2% 0.2%;
+  background-color: beige;
+
+  padding-top: 0.4%;
+
+  box-shadow: 0.1% 0.1% #0e89af;
+  color: red;
+
+  text-align: center;
+}
+
+.navMenu {
+  margin-top: 0.7vh;
+}
+.navMenu ul {
+  list-style: none;
+  text-align: left;
+}
+.navMenu ul li {
+  display: inline;
+}
+.navMenu ul li a{
+  padding-left: 2vw;
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  font-size: 3vh;
+}
+.navMenu ul li a:hover{
+  padding-left: 2vw;
+  display: inline-block;
+  color: red;
+  text-decoration: none;
+  font-size: 3.5vh;
+}
+
+

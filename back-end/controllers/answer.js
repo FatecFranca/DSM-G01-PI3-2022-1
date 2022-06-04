@@ -9,7 +9,7 @@ controller.create = async (req , res) => {
     try {
         await Answer.create(req.body)
         // HTTP 201: Created
-        res.status(201)
+        res.status(201).send()
     }
 
     catch(error) {

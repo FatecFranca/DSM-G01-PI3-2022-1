@@ -1,0 +1,52 @@
+.user-login {
+  border: 0.2vh solid blue;
+  margin: 10% 30% 50% 30%;
+  background-color: beige;
+  height: 40vh;
+}
+
+#texto {
+  font-size: 2vh;
+  text-align: center;
+  font-size: 4vh;
+  
+}
+
+form {
+  padding-top: 3.6vh;
+  font-size: 2vh;
+  
+}
+
+#lblemail{
+  padding-left: 6vw;
+  padding-right: 2vh;
+
+}
+
+#email, #password{
+  height: 4vh;
+  width: 14vw;
+
+}
+
+#lblpassword{
+  padding-left: 6vw;
+  padding-right: 3.5vh;
+
+}
+
+#btnEntrar{
+  font-size: 3vh;
+  width: 25vw;
+  margin: 6vh;
+  margin-left: 7vw;
+  border-radius: 4vh;
+
+}
+
+#erro {
+  padding-left: 6vw;
+  padding-top: 2vh;
+  color: red;
+}

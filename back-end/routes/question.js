@@ -13,7 +13,7 @@ router.put('/', controller.update)
 router.delete('/', controller.delete)
 
 //rotas para as alterações retiradas do git do professor
-router.get('/bygroup', controller.retrieveByGroup)
-router.get('/groupandnumber', controller.retrieveByGroupAndNumber)
+router.get('/group/:groupId', controller.retrieveByGroup)
+router.get('/group-number/:groupId/:number', controller.retrieveByGroupAndNumber)
 
 module.exports = router

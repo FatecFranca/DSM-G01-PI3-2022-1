@@ -1,0 +1,19 @@
+.rodape {
+  height: 5vh;
+  border: 0.2vh solid darkmagenta;
+
+  margin: 0.2% 0.2% 0.2% 0.2%;
+  background-color: black;
+
+  font-size: 2vh;
+
+  padding-top: 0.5%;
+  padding-left: 2%;
+
+  box-shadow: 0.1% 0.1% #0e89af;
+
+  color: chocolate;
+
+  text-align: center;
+}
+

@@ -1,0 +1,23 @@
+.question {
+  height: 98.5vh;
+  border: 0.2vh solid blue;
+
+  margin: 0.2%;
+  background-color: darkgray;
+}
+
+#areaQuestion {
+  height: 74vh;
+  border: 0.2vh solid darkorange;
+
+  margin: 0.2%;
+  background-color: burlywood;
+}
+
+.tabela {
+  max-width: 98vw;
+  max-height: 68vh;
+
+  overflow: scroll;
+}
+
