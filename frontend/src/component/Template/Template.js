@@ -4,6 +4,7 @@ import imgagemEscolhida from './logo5.png'
 import facebook from './facebook.png'
 import google from './google.png'
 import github from './github.png'
+import Rodape from '../Rodape/Rodape'
 
 
 
@@ -33,6 +34,7 @@ function Template() {
         </button>
       </div>
     </div>
+    <Rodape />
     </>
     
   );

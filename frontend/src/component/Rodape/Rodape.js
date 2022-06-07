@@ -4,7 +4,7 @@ import "./Rodape.css"
 function Rodape() {
   return (
     <div className="rodape">
-      By DSM - Web-III
+      <p>Desenvolvido por: Grupo 1 by DSM III</p>
 
     </div>
   );
