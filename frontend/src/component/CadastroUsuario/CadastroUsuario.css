@@ -1,4 +1,4 @@
-#login{
+#cadastro{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
   margin-top: 0%;
 }
 
-#login .form{
+#cadastro .form{
   background-color: #f1f1f1;
   width: 100%;
   max-width: 480px;
@@ -16,43 +16,35 @@
   margin-top: 1%;
 }
 
-#login .field{
+#cadastro .field{
   padding-bottom: 0.5rem;
 }
 
-#login .title{
+#cadastro .title{
   margin-top: 10%;
 }
 
-#login .field label{
+#cadastro .field label{
   display: block;
 }
 
 
-#login .field input{
+#cadastro .field input{
   width: 100%;
 }
 
 
-#login .actions {
+#cadastro .actions {
   text-align: center;
   margin-top: 0.5rem;
 }
 
-#login .cadastro {
+#cadastro .cadastro {
   text-align: center;
   margin-top: 0.5rem;
 }
 
-#login .msgErro {
+#cadastro .msgErro {
   text-align: center;
   color: red;
-}
-
-a:link {
-  color: black;
-  
-}
-a:visited {
-  color: black;
 }
