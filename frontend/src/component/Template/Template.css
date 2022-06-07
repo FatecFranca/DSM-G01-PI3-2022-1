@@ -30,6 +30,11 @@
     text-transform: uppercase;
 }
 
+.btnLogin:hover{
+    opacity: 70%;
+    font-weight: 'bold';
+}
+
 h2{
     text-align: center;
     font-weight: bold;
@@ -38,11 +43,20 @@ h2{
     cursor: pointer;
 }
 
+h2:hover{
+    font-size: 18px;
+}
+
 h3{
     color: #5E5E5A;
     font-family: 'Roboto';
     font-size: 16px;
     padding: 30px;
+    margin: 26px;
+}
+
+.redesSociais{
+    margin: 26px;
 }
 
 .redesSociais button{
