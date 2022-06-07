@@ -1,7 +1,5 @@
 import React from "react";
-import Cabecalho from "../Cabecalho/Cabecalho";
-import MenuHorizontal from "../MenuHorizontal/MenuHorizontal";
-import AreaDados from "../AreaDados/AreaDados";
+import Template from '../Template/Template'
 
 import Rodape from "../Rodape/Rodape";
 
@@ -15,10 +13,7 @@ import "./Home.css"
 export default function Home() {
   return (
     <div className="home">
-      <Cabecalho />
-      <MenuHorizontal />
-      <AreaDados />
-      <Rodape />
+      <Template />
     </div>
   );
 }

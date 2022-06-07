@@ -11,9 +11,8 @@ import { Route, Routes } from 'react-router-dom'
 function Routers() {
     return (
         <Routes>
-            <Route exact path="/" element={<Login/>} />
+            <Route exact path="/" element={<Home/>} />
             <Route exact path="/logout" element={<Login/>} />
-            <Route exact path="/home" element={<Home/>} />
             <Route exact path="/questions" element={<Questions/>} />
             <Route exact path="/answers" element={<Answers/>} />
             <Route exact path="/users" element={<Users/>} />
