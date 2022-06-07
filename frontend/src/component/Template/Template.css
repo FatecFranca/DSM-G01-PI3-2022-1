@@ -16,9 +16,9 @@
 }
 
 .btnLogin{
-    margin: 80px;
+    margin: 50px;
     width: 312px;
-    height: 70px;
+    height: 56px;
     border-radius: 8px;
     background: #D9D9D9;
     border: none;
@@ -41,6 +41,11 @@ h2{
 h3{
     color: #5E5E5A;
     font-family: 'Roboto';
-    font-size: 14px;
+    font-size: 16px;
     padding: 30px;
+}
+
+.redesSociais button{
+    background: none;
+    border: none;
 }

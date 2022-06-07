@@ -1,8 +1,11 @@
 import React from "react";
-import { Link } from 'react'
 import "./Template.css"
 import imgagemEscolhida from './logo5.png'
-import { Button } from "react-bootstrap";
+import facebook from './facebook.png'
+import google from './google.png'
+import github from './github.png'
+
+
 
 function Template() {
   return (
@@ -18,6 +21,17 @@ function Template() {
       </button>
       <h2>Não tem uma conta? Crie Já!</h2>
       <h3>Ou logue com</h3>
+      <div className="redesSociais">
+        <button className="facebook">
+          <img src={facebook}/>
+        </button>
+        <button className="google">
+          <img src={google}/>
+        </button>
+        <button className="github">
+          <img src={github}/>
+        </button>
+      </div>
     </div>
     </>
     
