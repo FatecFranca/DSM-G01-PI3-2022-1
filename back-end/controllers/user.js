@@ -149,7 +149,7 @@ controller.login = async (req, res) =>
                     // expiresIn: prazo de validade do token em segundos
 
                     // Resposta com HTTP 200 implicito
-                    res.json({auth: true, token})
+                    res.json({auth: true, token, userId:user._id})
                 }
                 else
                 {
