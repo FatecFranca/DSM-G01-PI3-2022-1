@@ -1,0 +1,23 @@
+.home {
+  height: 98.5vh;
+  margin: 0.2%;
+}
+
+.home bodytext{
+  text-align: center;
+}
+
+.home h1{
+  text-align: center;
+  font-size: 3em;
+}
+
+.home h2{
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.home h3{
+  text-align: justify;
+  font-size: 1em;
+}
