@@ -1,14 +1,7 @@
-.cabecalho {
-  height: 9vh;
-  border: 0.2vh solid blue;
-
-  margin: 0.2% 0.2% 0.2% 0.2%;
-  background-color: aqua;
-
-  padding-top: 0.2%;
-  padding-left: 0.2%;
-
-  text-align: left;
-  
+.head {
+    
+  width: 100%;
+  height: 94px;
+  background: #B20000;
+  color: #FFF;
 }
-

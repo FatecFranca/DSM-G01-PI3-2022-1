@@ -1,13 +1,16 @@
 import React from "react";
 
 import "./Cabecalho.css"
+import imgagemEscolhida from '../Template/logo5.png'
 
 function Cabecalho() {
   return (
-    <div className="cabecalho">
-      <p id='texto'>Projeto PI -  Integração de disciplinas</p>
-
-    </div>
+    <>
+      <header className="head">
+            <img src={imgagemEscolhida} height={80} width={80}/>
+            
+    </header>
+    </>
   );
 }
 

@@ -12,7 +12,7 @@ function Routers() {
     return (
         <Routes>
             <Route exact path="/" element={<Home/>} />
-            <Route exact path="/logout" element={<Login/>} />
+            <Route exact path="/login" element={<Login/>} />
             <Route exact path="/questions" element={<Questions/>} />
             <Route exact path="/answers" element={<Answers/>} />
             <Route exact path="/users" element={<Users/>} />

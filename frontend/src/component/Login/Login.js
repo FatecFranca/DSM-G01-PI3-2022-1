@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/Auth/AuthContext'
 
 import { api } from '../../services/api.js'
 import './Login.css';
-import Template from '../Template/Template';
+import Cabecalho from '../Cabecalho/Cabecalho'
 
 //function initialState() {
 //  return { email: '', password: '' };
@@ -47,7 +47,7 @@ const UserLogin = () => {
   return (
           
           <div id="login">
-          <Template></Template>
+          <Cabecalho />
           <h1 className="title">Login</h1>
           <form className="form" onSubmit={onSubmit}>
             <div className="field">
