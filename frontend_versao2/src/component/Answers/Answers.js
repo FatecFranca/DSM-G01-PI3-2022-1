@@ -12,7 +12,9 @@ function Answer() {
   const [answer, setAnswer] = useState([])
 
   useEffect(() => {
-    api.get('answer/')
+    let url = `answer/assessment/${localStorage.getItem('assessment')}`
+    console.log(url)
+    api.get(url)
       .then(response => setAnswer(response.data))
 
   }, []);
@@ -30,17 +32,31 @@ function Answer() {
             <table className="table table-responsive">
               <thead>
                 <tr id="titulo">
-                  <th id="t_numero">Nº</th>
                   <th id="t_enunciado">Enunciado</th>
+                  <th id="t_resposta">Resposta</th>
+                  <th id="t_comentario">Comentario</th>
                 </tr>
               </thead>
               <tbody>
                 {answer.map((item, i) => {
+                  debugger
+                  let resposta 
+                  if (item.objective_answer === 'S'){
+                    resposta = 'SIM'
+                  }else if (item.objective_answer === 'N'){
+                    resposta = 'NÃO'
+                  }else if (item.objective_answer === 'X'){
+                    resposta = 'N/A'
+                  }else{
+                    resposta = 'ADIAR'
+                  }
+
                   return (
-                    <>
+                    <> 
                       <tr id={item}>
-                        <td id={item.number}>{item.number}</td>
-                        <td id={item.enunciation}>{item.enunciation}</td>
+                        <td id={item.question.enunciation}>{item.question.enunciation}</td>
+                        <td id={item.question.objective_answer}>{resposta}</td>
+                        <td id={item.comments}>{item.comments}</td>                        
                       </tr>
                     </>
                   )
