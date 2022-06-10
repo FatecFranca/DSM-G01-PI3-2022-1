@@ -1,17 +1,14 @@
-.question {
+#question {
   height: 98.5vh;
-  border: 0.2vh solid blue;
 
   margin: 0.2%;
-  background-color: darkgray;
 }
 
 #areaQuestion {
   height: 74vh;
-  border: 0.2vh solid darkorange;
 
   margin: 0.2%;
-  background-color: burlywood;
+  background-color: white;
 }
 
 .tabela {
@@ -21,3 +18,7 @@
   overflow: scroll;
 }
 
+#question .actions {
+  text-align: center;
+  margin-top: 0.5rem;
+}

@@ -1,10 +1,10 @@
-.answer {
+.question {
   height: 98.5vh;
 
   margin: 0.2%;
 }
 
-#areaAnswer {
+#areaQuestion {
   height: 74vh;
 
   margin: 0.2%;
@@ -16,4 +16,8 @@
   max-height: 68vh;
 
   overflow: scroll;
+}
+
+.button {
+  border-color: white
 }
