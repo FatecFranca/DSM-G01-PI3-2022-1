@@ -39,7 +39,6 @@ function Answer() {
               </thead>
               <tbody>
                 {answer.map((item, i) => {
-                  debugger
                   let resposta 
                   if (item.objective_answer === 'Y'){
                     resposta = 'SIM'

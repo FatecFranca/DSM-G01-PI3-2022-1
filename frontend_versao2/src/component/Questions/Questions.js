@@ -34,7 +34,6 @@ function Questions() {
   };
  
   async function Navegacao() {
-    debugger
     let user = localStorage.getItem('userId')
     let title = `assessment`
     let description = `assessment ${user}`
