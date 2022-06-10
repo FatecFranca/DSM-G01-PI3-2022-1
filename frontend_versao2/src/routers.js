@@ -5,6 +5,7 @@ import QuestionsGroup from "./component/QuestionsGroup/QuestionsGroup.js";
 import Answers from "./component/Answers/Answers.js";
 import Users from "./component/Users/Users.js";
 import CadastroUsuario from './component/CadastroUsuario/CadastroUsuario.js'
+import AnswerUser from "./component/AnswersUser/AnswersUser.js";
 
 import { Route, Routes } from 'react-router-dom'
 import Questions from "./component/Questions/Questions.js";
@@ -17,6 +18,7 @@ function Routers() {
             <Route exact path="/home" element={<Home/>} />
             <Route exact path="/questionsGroup" element={<QuestionsGroup/>} />
             <Route exact path="/answers" element={<Answers/>} />
+            <Route exact path="/answersUser" element={<AnswerUser/>} />
             <Route exact path="/users" element={<Users/>} />
             <Route exact path="/cadastroUsuario" element={<CadastroUsuario/>} />
             <Route exact path="/question" element={<Questions/>} />

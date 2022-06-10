@@ -84,6 +84,32 @@ controller.delete = async (req, res) => {
     }  
 }
 
+controller.userAnswer = async (req, res) =>{
+    try{
+        let userId = req.params.id;
+        let retorno = []
+
+        result = await Answer.find().populate('assessment').populate({
+            path: 'question',                 
+            populate: [{ path: 'group' }]
+                                            
+                                            
+          })
+        result.forEach((resultado, i) => {
+            if (resultado.assessment.user == userId){
+                retorno.splice(i, 0, resultado)
+            }
+        });
+        
+        res.send(retorno)
+    }
+    catch(error){
+        console.error(error)
+        // HTTP 500: Internal Server error
+        res.status(500).send(error)
+    }
+}
+
 module.exports = controller
 
 

@@ -11,5 +11,7 @@ router.get('/assessment/:id',verifyToken, controller.retrieve)
 router.get('/:id',verifyToken, controller.retrieveOne)
 router.put('/',verifyToken, controller.update)
 router.delete('/',verifyToken, controller.delete)
+router.delete('/',verifyToken, controller.delete)
+router.get('/user/:id',verifyToken,  controller.userAnswer)
 
 module.exports = router

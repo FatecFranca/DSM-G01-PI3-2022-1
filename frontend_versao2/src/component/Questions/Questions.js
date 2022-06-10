@@ -29,8 +29,8 @@ function Questions() {
   };
 
   async function atualizaAnswer (index, item){
-    respostas.splice(index-1,1)
-    respostas.splice(index-1,0,{item})
+    respostas.splice(index,1)
+    respostas.splice(index,0,{item})
   };
  
   async function Navegacao() {
@@ -38,6 +38,7 @@ function Questions() {
     let title = `assessment`
     let description = `assessment ${user}`
     let assessment
+    debugger;
     const returnPost = await api.post("assessment/", {title, description, user}).then((response)=>{
       assessment = response.data._id
       localStorage.setItem('assessment',assessment)
@@ -76,12 +77,12 @@ function Questions() {
     navigate("/answers")
   }
 
-  function onChange(valor, idQuestao, question){   
+  function onChange(valor, idQuestao, question){  
     atualizaAnswer(idQuestao, {id:idQuestao, valor, question})
   }
 
   function onChangeComentario(valor, idQuestao){
-    atualizaComment(idQuestao, valor)  
+    atualizaComment(idQuestao , valor)  
   }
 
   return (
@@ -98,22 +99,22 @@ function Questions() {
                 <tr id="titulo">
                   <th id="t_numero">Nº</th>
                   <th id="t_enunciado">Enunciado</th>
-                  <th id="t_comentario">Comentário</th>
+                  <th id="t_comentario">Comentraio</th>
                 </tr>
               </thead>
               <tbody>
                 {question.map((item, i) => {
-                  atualizaAnswer(item.number, {id:item.number, valor:'Y', question:item._id})
+                  atualizaAnswer(item.number, {id:i, valor:'Y', question:item._id})
                   return (
                     <>
                       <tr id={item}>
                         <td id={item.number}>{item.number}</td>
                         <td id={item.enunciation}>{item.enunciation}</td>
-                        <td><input type="text" name={item.comentario} onChange={(e) => onChangeComentario(e.target.value, item.number)}/></td>
-                        <td><input type="radio" value="Y" name={item.number} defaultChecked  onChange={(e) => onChange(e.target.value, item.number, item._id)}/>SIM  </td>
-                        <td><input type="radio" value="N" name={item.number} onChange={(e) => onChange(e.target.value, item.number, item._id)}/>NÃO  </td>
-                        <td><input type="radio" value="X" name={item.number} onChange={(e) => onChange(e.target.value, item.number, item._id)}/>N/A  </td>
-                        <td><input type="radio" value="P" name={item.number} onChange={(e) => onChange(e.target.value, item.number, item._id)}/>ADIAR  </td>
+                        <td><input type="text" name={item.comentario} onChange={(e) => onChangeComentario(e.target.value, i )}/></td>
+                        <td><input type="radio" value="Y" name={item.number} defaultChecked  onChange={(e) => onChange(e.target.value, i, item._id)}/>SIM  </td>
+                        <td><input type="radio" value="N" name={item.number} onChange={(e) => onChange(e.target.value, i, item._id)}/>NÃO  </td>
+                        <td><input type="radio" value="X" name={item.number} onChange={(e) => onChange(e.target.value, i, item._id)}/>N/A  </td>
+                        <td><input type="radio" value="P" name={item.number} onChange={(e) => onChange(e.target.value, i, item._id)}/>ADIAR  </td>
                       </tr>
                     </>
                   )
