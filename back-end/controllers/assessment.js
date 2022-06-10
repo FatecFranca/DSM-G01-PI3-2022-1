@@ -7,9 +7,9 @@ const controller = {} // objeto vazio
 // entrada do assessment
 controller.create = async (req , res) => {
     try {
-        await Assessment.create(req.body)
+        let response = await Assessment.create(req.body)
         // HTTP 201: Created
-        res.status(201).send()
+        res.status(201).send(response)
     }
 
     catch(error) {

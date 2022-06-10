@@ -9,7 +9,7 @@ controller.create = async (req , res) => {
     try {
         await Question.create(req.body)
         // HTTP 201: Created
-        res.status(201).send()
+        res.status(201)
     }
 
     catch(error) {
@@ -52,6 +52,20 @@ controller.retrieveByGroup = async (req, res) => {
 controller.retrieveByGroupAndNumber = async (req, res) => {
     try {
         const result = await Question.findOne({group: req.params.groupId, number: req.params.number})
+        // HTTP 200: OK é implícito aqui
+        res.send(result)
+    }
+    catch(error) {
+        console.error(error)
+        // HTTP 500: Internal Server Error
+        res.status(500).send(error)        
+    }
+}
+
+controller.retrieveByGroup = async (req, res) => {
+    console.log(req.params.groupId)
+    try {
+        const result = await Question.find({group: {_id:req.params.groupId}}).exec()
         // HTTP 200: OK é implícito aqui
         res.send(result)
     }

@@ -1,10 +1,10 @@
-#question {
+.answer {
   height: 98.5vh;
 
   margin: 0.2%;
 }
 
-#areaQuestion {
+#areaAnswer {
   height: 74vh;
 
   margin: 0.2%;
@@ -16,9 +16,4 @@
   max-height: 68vh;
 
   overflow: scroll;
-}
-
-#question .actions {
-  text-align: center;
-  margin-top: 0.5rem;
 }

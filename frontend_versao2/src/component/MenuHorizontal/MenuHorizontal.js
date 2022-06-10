@@ -11,7 +11,7 @@ function MenuHorizontal() {
                     <li> <Link to="/home"> Inicio </Link> </li>
                     <li> <Link to="/logout"> Logout </Link> </li>
                     <li> <Link to="/questionsGroup"> Questões </Link> </li>
-                    <li> <Link to="/answers"> Respostas </Link> </li>
+                    <li> <Link to="/answersUser"> Respostas </Link> </li>
                     <li> <Link to="/users"> Usuarios </Link> </li>
                 </ul>
 

@@ -1,22 +1,28 @@
 import React from "react";
 import MenuHorizontal from "../MenuHorizontal/MenuHorizontal";
 import Template from "../Template/Template.js"
-import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { api } from '../../services/api.js'
 
 import "./QuestionsGroup.css"
+import { useNavigate } from 'react-router-dom'
 
 //export default function Questions() {
 function QuestionsGroup() {  
   const [questionsGroup, setQuestionsGroup] = useState([])
+  let  navigate = useNavigate();
 
   useEffect(() => {
     api.get('question-group')
       .then(response => setQuestionsGroup(response.data))
 
   }, []);
- 
+  
+  function responder(item) {
+    localStorage.setItem('questionGroupId', item._id)
+    navigate('/question')
+    
+  }
 
   return (
     <div className="question">
@@ -41,17 +47,14 @@ function QuestionsGroup() {
                       <tr id={item}>
                         <td id={item.group}>{item.group}</td>
                         <td id={item.description}>{item.description}</td>
-                        <Button className="button" href="/question">Questões</Button> 
+                        <td><button onClick={() => responder(item)}>
+                          Responder
+                        </button></td>
                       </tr>
                     </>
                   )
                 })}
               </tbody>
-              <tfoot>
-                <tr id="registros">
-                  <td>Total de Registros: {questionsGroup.length}</td>
-                </tr>
-              </tfoot>
             </table>
           </div>
         </div>

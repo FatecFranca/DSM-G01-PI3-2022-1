@@ -17,8 +17,7 @@ controller.create = async (req , res) => {
 
         //destrói o campo password para que ele não seja passado para o model
         delete req.body.password
-
-        await User.create(req.body)
+        var user = await User.create(req.body)
         // HTTP 201: Created
         res.status(201).send()
     }
@@ -63,7 +62,6 @@ controller.retrieve = async (req, res) => {
 controller.retrieveOne = async (req, res) =>{
     try{
         const id = req.params.id
-
         let result
         // Retornamos os dados do usuário solicitado somente se quem estiver
         // logado for admin ou o próprio usário sendo consultado
@@ -128,10 +126,17 @@ controller.delete = async (req, res) => {
 
 controller.login = async (req, res) =>
 {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
     try
     {
         //buscar o usuário no banco de dados
+        console.log(req.body.email)
         const user = await User.findOne({email: req.body.email}).select('password_hash')
+        console.log(user);
         if(!user)  // Usuário não encontrado
         {
             // HTTP 401: Unauthorized
@@ -147,7 +152,6 @@ controller.login = async (req, res) =>
                     //senha bate
                     const token = jwt.sign({id:user._id}, process.env.SECRET, {expiresIn: 3600})
                     // expiresIn: prazo de validade do token em segundos
-
                     // Resposta com HTTP 200 implicito
                     res.json({auth: true, token, userId:user._id})
                 }
