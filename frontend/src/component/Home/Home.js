@@ -16,7 +16,7 @@ import Template from "../Template/Template";
 export default function Home() {
   return (
     <div className="home">
-      <Cabecalho/>
+      <Template/>
       <MenuHorizontal />
       <div className="bodytext">
         <br/>

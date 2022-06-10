@@ -1,11 +1,11 @@
 import React from "react";
 import MenuHorizontal from "../MenuHorizontal/MenuHorizontal";
+import Template from "../Template/Template.js"
 import { useEffect, useState } from "react";
 import { api } from '../../services/api.js'
 
 import "./QuestionsGroup.css"
 import { useNavigate } from 'react-router-dom'
-import Cabecalho from "../Cabecalho/Cabecalho";
 
 //export default function Questions() {
 function QuestionsGroup() {  
@@ -26,12 +26,12 @@ function QuestionsGroup() {
 
   return (
     <div className="question">
-      <Cabecalho/>
+      <Template/>
       <MenuHorizontal />
 
       <div id="areaQuestion">
         <div id="idQuestion">
-          <legend>Grupos de Questões</legend>
+          <legend>Grupos de Questions</legend>
           <div className="tabela">
             <table className="table table-responsive">
               <thead>

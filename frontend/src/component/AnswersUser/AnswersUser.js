@@ -72,5 +72,3 @@ function AnswerUser() {
 }
 
 export default AnswerUser
-
-

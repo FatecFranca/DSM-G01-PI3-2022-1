@@ -1,15 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 .rodape {
-  width: 100%;
-  height: 18px;
-  padding: 8px;
+  height: 5vh;
+
+  margin: 0.2% 0.2% 0.2% 0.2%;
+
+  font-size: 2vh;
+
+  padding-top: 0.5%;
+  padding-left: 2%;
+
   text-align: center;
-  background-color: #F5F5F5;
-  color: #000000;
-  font-family: 'Roboto';
-  font-size: 10px;
-  bottom: 0;
-  position: fixed;
 }
 

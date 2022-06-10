@@ -1,12 +1,12 @@
 import React from "react";
 import MenuHorizontal from "../MenuHorizontal/MenuHorizontal";
+import Template from "../Template/Template.js"
 
 import { useEffect, useState } from "react";
 import { api } from '../../services/api.js'
 
 import "./Questions.css"
 import { useNavigate } from 'react-router-dom'
-import Cabecalho from "../Cabecalho/Cabecalho";
 
 function Questions() {  
   const [question, setQuestion] = useState([])
@@ -87,7 +87,7 @@ function Questions() {
 
   return (
     <div className="question">
-      <Cabecalho/>
+      <Template/>
       <MenuHorizontal />
 
       <div id="areaQuestion">
