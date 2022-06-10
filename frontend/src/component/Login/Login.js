@@ -40,7 +40,7 @@ const UserLogin = () => {
       localStorage.setItem('x-access-token', response.data.token)
       navigate('/home')
     }).catch((error) =>{
-      setAutorizado("Usuário ou senha inválido")
+      setAutorizado("Usuário ou senha inválidos")
     })
   }
 

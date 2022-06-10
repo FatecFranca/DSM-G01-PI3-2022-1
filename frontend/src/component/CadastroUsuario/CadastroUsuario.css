@@ -75,4 +75,6 @@
 #cadastro .msgErro {
   text-align: center;
   color: red;
+  font-family: 'Roboto';
+  font-weight: bold;
 }
