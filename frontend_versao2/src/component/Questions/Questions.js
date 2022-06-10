@@ -34,6 +34,7 @@ function Questions() {
   };
  
   async function Navegacao() {
+    debugger
     let user = localStorage.getItem('userId')
     let title = `assessment`
     let description = `assessment ${user}`
@@ -76,15 +77,7 @@ function Questions() {
     navigate("/answers")
   }
 
-  function onChange(valor, idQuestao, question){
-      /*let resposta = {id:idQuestao, valor, question}
-      let copiaRespostas = respostas
-      let result = respostas.findIndex(function(object) {
-        return object.id === idQuestao;
-      });
-      copiaRespostas.splice(result, 1)
-      setRespostas([...copiaRespostas, resposta])*/
-    
+  function onChange(valor, idQuestao, question){   
     atualizaAnswer(idQuestao, {id:idQuestao, valor, question})
   }
 
@@ -106,7 +99,7 @@ function Questions() {
                 <tr id="titulo">
                   <th id="t_numero">Nº</th>
                   <th id="t_enunciado">Enunciado</th>
-                  <th id="t_comentario">Comentraio</th>
+                  <th id="t_comentario">Comentário</th>
                 </tr>
               </thead>
               <tbody>

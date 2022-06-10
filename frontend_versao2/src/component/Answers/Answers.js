@@ -34,14 +34,14 @@ function Answer() {
                 <tr id="titulo">
                   <th id="t_enunciado">Enunciado</th>
                   <th id="t_resposta">Resposta</th>
-                  <th id="t_comentario">Comentario</th>
+                  <th id="t_comentario">Comentário</th>
                 </tr>
               </thead>
               <tbody>
                 {answer.map((item, i) => {
                   debugger
                   let resposta 
-                  if (item.objective_answer === 'S'){
+                  if (item.objective_answer === 'Y'){
                     resposta = 'SIM'
                   }else if (item.objective_answer === 'N'){
                     resposta = 'NÃO'
