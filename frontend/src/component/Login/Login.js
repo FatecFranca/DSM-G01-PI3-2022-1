@@ -52,11 +52,11 @@ const UserLogin = () => {
           <form className="form" onSubmit={onSubmit}>
             <div className="field">
                 <label htmlFor="email">Email</label>
-                <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input type="email" name="email" id="email"  placeholder='Digite seu e-mail...' value={email} onChange={(e) => setEmail(e.target.value)}/>
             </div>
             <div className="field">
                 <label htmlFor="password">Senha</label>
-                <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input type="password" name="password" id="password"  placeholder='Digite sua senha...' value={password} onChange={(e) => setPassword(e.target.value)}/>
             </div>
             <br></br>
             <p className='msgErro'>{String(autorizado)}</p>
