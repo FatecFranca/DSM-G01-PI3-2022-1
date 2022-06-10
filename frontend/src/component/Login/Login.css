@@ -9,7 +9,6 @@
 }
 
 #login .form{
-  background-color: #f1f1f1;
   width: 100%;
   max-width: 480px;
   padding: 0.5rem;
@@ -21,16 +20,29 @@
 }
 
 #login .title{
-  margin-top: 10%;
+  margin-top: 24px;
+  margin-bottom: 4%;
+  font-family: 'Roboto';
+  font-size: 40px;
+  font-weight: bold;
 }
 
 #login .field label{
   display: block;
+  font-family: 'Roboto';
+  font-size: 18px;
+  margin: 10px;
+  color: #000000;
 }
 
 
 #login .field input{
   width: 100%;
+  height: 40px;
+  margin-left: 10px;
+  background-color: #D9D9D9;
+  border: none;
+  border-radius: 8px;
 }
 
 
@@ -42,6 +54,7 @@
 #login .cadastro {
   text-align: center;
   margin-top: 0.5rem;
+  
 }
 
 #login .msgErro {
@@ -49,10 +62,23 @@
   color: red;
 }
 
+#btnEntrar button {
+  background-color: #005C6E;
+  color: #FFFFFF;
+  width: 300px;
+  height: 40px;
+  font-family: 'Roboto';
+  border: none;
+  border-radius: 8px;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+}
+
+
+
 a:link {
   color: black;
-  
-}
-a:visited {
-  color: black;
+  font-size: 16px;
+  text-decoration: none;
+  font-family: 'Roboto';
 }

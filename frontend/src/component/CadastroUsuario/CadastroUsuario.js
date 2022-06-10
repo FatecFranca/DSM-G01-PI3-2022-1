@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/Auth/AuthContext'
 
 import { api } from '../../services/api.js'
 import './CadastroUsuario.css';
-import Template from '../Template/Template';
+import Cabecalho from '../Cabecalho/Cabecalho'
 
 
 const CadastroUsuario = () => {
@@ -34,20 +34,20 @@ const CadastroUsuario = () => {
   return (
           
           <div id="cadastro">
-          <Template></Template>
+          <Cabecalho />
           <h2 className="title">Novo Usuário</h2>
           <form className="form" onSubmit={onSubmit}>
           <div className="field">
                 <label htmlFor="nome">Nome</label>
-                <input type="text" name="fullName" id="fullName" value={fullname} onChange={(e) => setFullName(e.target.value)}/>
+                <input type="text" name="fullName" id="fullName" placeholder='Digite seu nome completo' value={fullname} onChange={(e) => setFullName(e.target.value)}/>
             </div>  
             <div className="field">
                 <label htmlFor="email">Email</label>
-                <input type="email" name="emailCadastro" id="emailCadastro" value={emailCadastro} onChange={(e) => setEmail(e.target.value)}/>
+                <input type="email" name="emailCadastro" id="emailCadastro" placeholder='Digite seu e-mail' value={emailCadastro} onChange={(e) => setEmail(e.target.value)}/>
             </div>
             <div className="field">
                 <label htmlFor="password">Senha</label>
-                <input type="password" name="passwordCadastro" id="passwordCadastro" value={passwordCadastro} onChange={(e) => setPassword(e.target.value)}/>
+                <input type="password" name="passwordCadastro" id="passwordCadastro" placeholder='Digite sua senha' value={passwordCadastro} onChange={(e) => setPassword(e.target.value)}/>
             </div>
             <br></br>
             <p className='msgErro'>{String(msg)}</p>
