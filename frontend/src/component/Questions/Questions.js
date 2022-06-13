@@ -99,7 +99,7 @@ function Questions() {
                 <tr id="titulo">
                   <th id="t_numero">Nº</th>
                   <th id="t_enunciado">Enunciado</th>
-                  <th id="t_comentario">Comentraio</th>
+                  <th id="t_comentario">Comentário</th>
                 </tr>
               </thead>
               <tbody>
